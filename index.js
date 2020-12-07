@@ -1,12 +1,9 @@
 /* 
 	Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
+*/
 
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
-   */
-
-  const inhabits = [
+const inhabits = [
 	{
 		species: 'cat',
 		name: 'Murka',
@@ -47,7 +44,7 @@
 
 const returnString = (arr) => {
 	return arr.map((person) => {
-		 return Object.values(person).map(info => info).join("; ");
+		 return Object.values(person).join("; ");
 	}).join("\n");
 }
 
