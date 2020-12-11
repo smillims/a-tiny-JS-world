@@ -6,7 +6,6 @@
 const cat = {
 	species: 'cat',
 	name: 'Murka',
-	surname: 'My hosts didn\'t give me a surname',
 	gender: 'female',
 	legs: '4',
 	saying: 'Hey, I\'m cat.',
@@ -24,12 +23,10 @@ const man = {
 
 const dog = {
 	species: 'dog',
-	name: 'Peter',
-	surname: 'Parker',
-	gender: 'male',
-	legs: '2',
-	hands: '2',
-	saying: 'Your friendly neighborhood Spider-Man!',
+	name: 'Arrow',
+	gender: 'female',
+	legs: '4',
+	saying: 'I were in space, what about you?',
 };
 
 const woman = {
