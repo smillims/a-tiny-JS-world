@@ -3,62 +3,47 @@
    Complete the below for code reviewers' convenience:
 */
 
-'use strict';
-
-class Inhabitats {
-	constructor (species, name, surname, gender, legs, hands, saying) {
-		this.species = species;
-		this.name = name;
-		this.surname = surname;
-		this.gender = gender;
-		this.legs = legs;
-		this.hands = hands;
-		this.saying = saying;
-	}
+const cat = {
+	species: 'cat',
+	name: 'Murka',
+	surname: 'Murkovna',
+	gender: 'female',
+	legs: '4',
+	saying: 'Hey, I\'m cat.',
 };
 
-Inhabitats.prototype.toString = function() {
-	return `${this.species}; ${this.name}; ${this.surname}; ${this.gender}; ${this.legs}; ${this.hands}; ${this.saying}`
+const man = {
+	species: 'human',
+	name: 'Jorj',
+	surname: 'Kluni',
+	gender: 'male',
+	legs: '2',
+	hands: '2',
+	saying:'Did you see Ocean\'s Eleven?',
 };
 
-class Cat extends Inhabitats {
-	constructor (species, name, surname, gender, legs, hands, saying){
-		super(species, name, surname, gender, legs, hands, saying);
-	}
+const dog = {
+	species: 'dog',
+	name: 'Arrow',
+	surname: 'Space',
+	gender: 'female',
+	legs: '4',
+	saying: 'I were in space, what about you?',
 };
 
-class Man extends Inhabitats {
-	constructor (species, name, surname, gender, legs, hands, saying){
-		super(species, name, surname, gender, legs, hands, saying);
-	}
-};
-
-class Dog extends Inhabitats {
-	constructor (species, name, surname, gender, legs, hands, saying){
-		super(species, name, surname, gender, legs, hands, saying);
-	}
-};
-
-class Woman extends Inhabitats {
-	constructor (species, name, surname, gender, legs, hands, saying){
-		super(species, name, surname, gender, legs, hands, saying);
-	}
-};
-
-const cat = new Cat('cat', 'Murka', 'Murkovna', 'female', '4', '0', 'Hey, I\'m cat.');
-const man = new Man('human', 'Jorj', 'Kluni', 'male', '2', '2', 'Did you see Ocean\'s Eleven?');
-const dog = new Dog('dog', 'Arrow', 'Space', 'female', '4', '0', 'I were in space, what about you?');
-const woman = new Woman('human', 'Enn', 'Hatuey', 'female', '2', '2', 'Follow me on instagram.');
-
-const allInhabitats = [
-	cat,
-	man,
-	dog,
-	woman
-];
-
-const forInhabitats = () => {
-	return allInhabitats.forEach(some => print(some));
+const woman = {
+	species: 'human',
+	name: 'Enn',
+	surname: 'Hatuey',
+	gender: 'female',
+	legs: '2',
+	hands: '2',
+	saying: 'Follow me on instagram.',
 }
 
-forInhabitats();
+const all = [cat, man, dog, woman];
+const properties = ['species', 'name', 'surname', 'gender', 'legs', 'hands', 'saying'];
+
+const returnString = arr => arr.map(item => properties.map((key) => item[key]).filter(value => value).join('; ')).join('\n');
+
+print(returnString(all));
