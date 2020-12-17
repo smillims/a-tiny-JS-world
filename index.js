@@ -58,7 +58,7 @@ const allInhabitats = [
 ];
 
 const forInhabitats = () => {
-	return allInhabitats.forEach(some => print(some));
+	return allInhabitats.forEach(items => print(items));
 }
 
 forInhabitats();
