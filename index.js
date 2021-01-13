@@ -3,47 +3,93 @@
    Complete the below for code reviewers' convenience:
 */
 
-const cat = {
-	species: 'cat',
-	name: 'Murka',
-	surname: 'Murkovna',
-	gender: 'female',
-	legs: '4',
-	saying: 'Hey, I\'m cat.',
+class Inhabitats {
+	constructor(gender, legs, hands){
+		this.gender = 'female';
+		this.legs = '4';
+		this.hands = '0';
+	}
+	toString(){
+		const properties = ['species', 'name', 'surname', 'gender', 'legs', 'hands', 'saying'];
+		const arrowProperties = properties.map(key => this[key]).join(', ');
+		return arrowProperties;
+	};
+	saying(){
+		let string = `Hi, I\'m ` + this.species + `. My name is ` + this.name + `. My surname is ` + this.surname + `. I\'m ` + this.gender + `. I have ` + this.legs + ` legs and ` + this.hands + ` hands.`;
+
+		const arrowString = string.split();
+		const checkString = arrowString.map(item => item).filter(value => value).join('; ');
+
+		return checkString;
+	};
 };
 
-const man = {
-	species: 'human',
-	name: 'Jorj',
-	surname: 'Kluni',
-	gender: 'male',
-	legs: '2',
-	hands: '2',
-	saying:'Did you see Ocean\'s Eleven?',
+class Human extends Inhabitats{
+	constructor(species, legs, hands){
+		super(species, legs, hands);
+		this.species = 'human';
+		this.legs = '2';
+		this.hands = '2';
+	};
 };
 
-const dog = {
-	species: 'dog',
-	name: 'Arrow',
-	surname: 'Space',
-	gender: 'female',
-	legs: '4',
-	saying: 'I were in space, what about you?',
+class Cat extends Inhabitats {
+	constructor (species, name, surname){
+		super(species, name, surname);
+		this.species = 'cat';
+		this.name = 'Murka';
+		this.surname = 'Murkovna';
+	};
+	itsSaying(){
+		return super.saying();
+	};
 };
 
-const woman = {
-	species: 'human',
-	name: 'Enn',
-	surname: 'Hatuey',
-	gender: 'female',
-	legs: '2',
-	hands: '2',
-	saying: 'Follow me on instagram.',
+class Man extends Human {
+	constructor (name, surname, gender){
+		super(name, surname, gender);
+		this.name = 'Jorj';
+		this.surname = 'Kluni';
+		this.gender = 'male';
+	};
+	itsSaying(){
+		return super.saying();
+	};
 }
 
-const all = [cat, man, dog, woman];
-const properties = ['species', 'name', 'surname', 'gender', 'legs', 'hands', 'saying'];
+class Dog extends Inhabitats {
+	constructor(species, name, surname){
+		super(species, name, surname);
+		this.species = 'dog';
+		this.name = 'Arrow';
+		this.surname = 'Space';
+	};
+	itsSaying(){
+		return super.saying();
+	};
+};
 
-const returnString = arr => arr.map(item => properties.map((key) => item[key]).filter(value => value).join('; ')).join('\n');
+class Woman extends Human {
+	constructor(name, surname, gender){
+		super(name, surname, gender);
+		this.name = 'Enn';
+		this.surname = 'Hatuey';
+		this.gender = 'female';
+	};
+	itsSaying(){
+		return super.saying();
+	};
+};
 
-print(returnString(all));
+const cat = new Cat();
+const man = new Man();
+const dog = new Dog();
+const woman = new Woman();
+
+const allInhabitats = [cat, man, dog, woman];
+
+const printAll = function() {
+	allInhabitats.map(item => print(item.itsSaying()));
+}
+
+printAll();
